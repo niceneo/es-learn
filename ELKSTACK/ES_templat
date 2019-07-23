@@ -1,0 +1,101 @@
+PUT my_index
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "std_english": { 
+          "type":      "standard",
+          "stopwords": "_english_"
+        }
+      }
+    }
+  },
+  "mappings": {
+    "properties": {
+      "my_text": {
+        "type":     "text",
+        "analyzer": "standard", 
+        "fields": {
+          "english": {
+            "type":     "text",
+            "analyzer": "std_english" 
+          }
+        }
+      }
+    }
+  }
+}
+
+POST my_index/_analyze
+{
+  "field": "my_text", 
+  "text": "The old brown cow"
+}
+
+POST my_index/_analyze
+{
+  "field": "my_text.english", 
+  "text": "The old brown cow"
+}
+
+
+
+POST _analyze
+{
+  "analyzer": "standard",
+  "text":     "I love My mother"
+}
+
+POST _analyze
+{
+  "tokenizer": "standard",
+  "filter":  [ "lowercase", "asciifolding" ],
+  "text":      "Is this déja vu?"
+}
+
+
+
+POST _analyze
+{
+  "analyzer": "standard",
+  "text": "The 2 QUICK Brown-Foxes jumped over the lazy dog's bone."
+}
+
+
+GET _search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+GET _cat/indices?v&s=index
+
+GET _cat/nodes
+
+GET kibana_sample_data_logs/_settings
+
+PUT _template/box_gear
+{
+  "index_patterns": ["box-*"],
+  "settings": {
+    "number_of_shards": 2,
+	 "number_of_replicas": 1
+  },
+  "mappings": {
+    "_source": {
+      "enabled": true
+    },
+    "properties": {
+      "loglevel": {
+        "type": "keyword"
+      },
+      "msg": {
+        "type": "text"
+      }
+    }
+  }
+}
+GET _template/box_gear
+
+DELETE _template/box_gear

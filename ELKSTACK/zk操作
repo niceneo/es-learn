@@ -1,0 +1,10 @@
+
+bin/kafka-topics.sh --zookeeper 127.0.0.1:2181 --topic lx_test_topic --describe
+
+bin/kafka-topics.sh --zookeeper 127.0.0.1:2181 --list
+
+bin/kafka-topics.sh --delete --zookeeper HadoopMaster:2181/kafka --topic test
+
+bin/kafka-consumer-groups.sh --new-consumer --bootstrap-server 127.0.0.1:9292 --list test
+
+bin/kafka-topics.sh --zookeeper node01:2181 --describe --topic t_cdr

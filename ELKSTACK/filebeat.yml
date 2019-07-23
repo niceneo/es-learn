@@ -1,0 +1,182 @@
+filebeat.prospectors:
+# ============BOX omc01==============
+- type: log
+  enabled: true
+  paths:
+    - /qhapp/apps/lo-boxs/omc01/boxlogs/dev.log
+  fields:
+    host: "10.91.18.141"
+    box: "omc01"
+    gear: "dev"
+  include_lines: ['ERROR','WARN']
+  multiline.pattern: '^[0-9]{4}-[0-9]{2}-[0-9]{2}'
+  multiline.negate: true
+  multiline.match: after
+
+- type: log
+  enabled: true
+  paths:
+    - /qhapp/apps/lo-boxs/omc01/gear_logs/zuche-cmd-monitor/zuche-cmd-monitor.log
+  fields:
+    host: "10.91.18.141"
+    box: "omc01"
+    gear: "zuche-cmd-monitor"
+  include_lines: ['ERROR','WARN']
+  multiline.pattern: '^[0-9]{4}-[0-9]{2}-[0-9]{2}'
+  multiline.negate: true
+  multiline.match: after
+
+
+
+# ============BOX S0001==============
+- type: log
+  enabled: true
+  paths:
+    - /qhapp/apps/lo-boxs/S0001/boxlogs/dev.log
+  fields:
+    host: "10.91.18.141"
+    box: "S0001"
+    gear: "dev"
+  include_lines: ['ERROR','WARN']
+  multiline.pattern: '^[0-9]{4}-[0-9]{2}-[0-9]{2}'
+  multiline.negate: true
+  multiline.match: after
+
+- type: log
+  enabled: true
+  paths:
+    - /qhapp/apps/lo-boxs/S0001/gear_logs/rocketmq_client/rocketmq_client.log
+  fields:
+    host: "10.91.18.141"
+    box: "S0001"
+    gear: "rocketmq_client"
+  include_lines: ['ERROR','WARN']
+  multiline.pattern: '^[0-9]{4}-[0-9]{2}-[0-9]{2}'
+  multiline.negate: true
+  multiline.match: after
+  
+- type: log
+  enabled: true
+  paths:
+    - /qhapp/apps/lo-boxs/S0001/gear_logs/zuche-order-control/zuche-order-control.log
+  fields:
+    host: "10.91.18.141"
+    box: "S0001"
+    gear: "zuche-order-control"
+  include_lines: ['ERROR','WARN']
+  multiline.pattern: '^[0-9]{4}-[0-9]{2}-[0-9]{2}'
+  multiline.negate: true
+  multiline.match: after
+
+- type: log
+  enabled: true
+  paths:
+    - /qhapp/apps/lo-boxs/S0001/gear_logs/zuche-order-online/zuche-order-online.log
+  fields:
+    host: "10.91.18.141"
+    box: "S0001"
+    gear: "zuche-order-online"
+  include_lines: ['ERROR','WARN']
+  multiline.pattern: '^[0-9]{4}-[0-9]{2}-[0-9]{2}'
+  multiline.negate: true
+  multiline.match: after
+
+- type: log
+  enabled: true
+  paths:
+    - /qhapp/apps/lo-boxs/S0001/gear_logs/zuche-order-settle/zuche-order-settle.log
+  fields:
+    host: "10.91.18.141"
+    box: "S0001"
+    gear: "zuche-order-settle"
+  include_lines: ['ERROR','WARN']
+  multiline.pattern: '^[0-9]{4}-[0-9]{2}-[0-9]{2}'
+  multiline.negate: true
+  multiline.match: after
+
+# ============BOX S0601==============
+
+- type: log
+  enabled: true
+  paths:
+    - /qhapp/apps/lo-boxs/S0601/boxlogs/dev.log
+  fields:
+    host: "10.91.18.141"
+    box: "S0601"
+    gear: "dev"
+  include_lines: ['ERROR','WARN']
+  multiline.pattern: '^[0-9]{4}-[0-9]{2}-[0-9]{2}'
+  multiline.negate: true
+  multiline.match: after
+
+- type: log
+  enabled: true
+  paths:
+    - /qhapp/apps/lo-boxs/S0601/gear_logs/zuche-notify-base/zuche-notify-base.log
+  fields:
+    host: "10.91.18.141"
+    box: "S0601"
+    gear: "zuche-notify-base"
+  include_lines: ['ERROR','WARN']
+  multiline.pattern: '^[0-9]{4}-[0-9]{2}-[0-9]{2}'
+  multiline.negate: true
+  multiline.match: after
+
+- type: log
+  enabled: true
+  paths:
+    - /qhapp/apps/lo-boxs/S0601/gear_logs/zuche-notify-gw/zuche-notify-gw.log
+  fields:
+    host: "10.91.18.141"
+    box: "S0601"
+    gear: "zuche-notify-gw"
+  include_lines: ['ERROR','WARN']
+  multiline.pattern: '^[0-9]{4}-[0-9]{2}-[0-9]{2}'
+  multiline.negate: true
+  multiline.match: after
+  
+- type: log
+  enabled: true
+  paths:
+    - /qhapp/apps/lo-boxs/S0601/gear_logs/zuche-vehicle-controller/zuche-vehicle-controller.log
+  fields:
+    host: "10.91.18.141"
+    box: "S0601"
+    gear: "zuche-vehicle-controller"
+  include_lines: ['ERROR','WARN']
+  multiline.pattern: '^[0-9]{4}-[0-9]{2}-[0-9]{2}'
+  multiline.negate: true
+  multiline.match: after
+
+- type: log
+  enabled: true
+  paths:
+    - /qhapp/apps/lo-boxs/S0601/gear_logs/zuche-vehicle-online/zuche-vehicle-online.log
+  fields:
+    host: "10.91.18.141"
+    box: "S0601"
+    gear: "zuche-vehicle-online"
+  include_lines: ['ERROR','WARN']
+  multiline.pattern: '^[0-9]{4}-[0-9]{2}-[0-9]{2}'
+  multiline.negate: true
+  multiline.match: after
+
+- type: log
+  enabled: true
+  paths:
+    - /qhapp/apps/lo-boxs/S0601/gear_logs/zuche-vehicle-report/zuche-vehicle-report.log
+  fields:
+    host: "10.91.18.141"
+    box: "S0601"
+    gear: "zuche-vehicle-report"
+  include_lines: ['ERROR','WARN']
+  multiline.pattern: '^[0-9]{4}-[0-9]{2}-[0-9]{2}'
+  multiline.negate: true
+  multiline.match: after
+
+output.kafka:
+  hosts: ["10.91.18.211:9092","10.91.18.212:9092","10.91.18.213:9092"]
+  topic: "zuchecore"
+processors:
+- drop_fields:
+    fields: ["beat.hostname", "beat.name", "beat.version", "host.name", "log.flags", "offset"]

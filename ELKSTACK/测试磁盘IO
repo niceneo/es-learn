@@ -1,0 +1,5 @@
+time dd if=/dev/zero of=test.dbf bs=8k count=300000
+dd if=test.dbf bs=8k count=300000 of=/dev/null
+
+
+"<p>应用错误日志监控告警,请核查处理!!!</p>\n<p>{{#payload.hits.hits}} 主机:{{ _source.fields.host }}  BOX: {{ _source.fields.box }}  <br>  {{/payload.hits.hits}}  最近五分钟日子错误数量：{{payload.hits.total}}. <br> </p>\n 本邮件为系统发送，请勿直接回复"
